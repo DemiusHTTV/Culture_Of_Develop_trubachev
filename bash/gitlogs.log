@@ -1,0 +1,11 @@
+ 1016  git add main.py
+ 1017  git commit -m "add script with function sum and minus "
+ 1019  git commit -a -m "added several arithmetic functions and a receiving function string"
+ 1020  git push origin main
+ 1021  git fetch
+ 1022  git push origin main
+ 1023  git pull
+ 1024  git push origin main
+ 1025  git push origin main -f
+ 1026  git checkout -c feature/bash
+ 1027  git switch -c feature/bash
