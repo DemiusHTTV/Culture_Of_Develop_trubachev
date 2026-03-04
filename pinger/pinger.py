@@ -13,3 +13,6 @@ while True:
 
     response = requests.get(url=url, stream=True)
     print(f"From url {url} got {response}")
+if response.status_code == 200:
+        print(f"Last avalibe data are for {current}")
+        break
