@@ -33,6 +33,12 @@ def test_add_something():
     add_something(10,None)==0
     add_something("1kl",10)==0
 
+def test_calculate_tax():
+    calculate_tax(1000) ==150
+    calculate_tax(2000) == 300
+    calculate_tax(30)==4.5
+    
+
 
 if __name__ == "__main__":
     test()

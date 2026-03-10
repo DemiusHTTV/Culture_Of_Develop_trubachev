@@ -9,3 +9,7 @@ def add_something(a,b):
     if isinstance(a,str) or isinstance(b,str):
         return str(a)*str(b)
     return a+b
+
+def calculate_tax(income):
+    return income *0.15
+    
