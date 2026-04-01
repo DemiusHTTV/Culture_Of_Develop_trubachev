@@ -1,6 +1,15 @@
 # TODO refactor this module using buisness logic names
 
 def parse_record(line:str):
+    '''
+    Parse data from one sale record
+
+    Parametrs:
+        line:record on one sale with that come from file
+    
+    Returns:
+        data of one sale in front of dict or none if validations fails
+    '''
     sale = line.strip().split(",")
     if len(sale) !=4:
         return None
