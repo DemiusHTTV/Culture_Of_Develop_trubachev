@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  product-service:
+    build:
+      context: ./product_service
+    ports:
+      - "8001:8000"
+    networks:
+      - app-network
+
+  discount-service:
+    build:
+      context: ./discount_service
+    ports:
+      - "8003:8000"
+    networks:
+      - app-network
+
+  order-service:
+    build:
+      context: ./order_service
+    ports:
+      - "8002:8000"
+    environment:
+      - PRODUCT_SERVICE_URL=http://product-service:8000
+      - DISCOUNT_SERVICE_URL=http://discount-service:8000
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
