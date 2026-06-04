@@ -1,0 +1,6 @@
+requests
+numpy
+fastapi
+mypy
+black
+deptry
