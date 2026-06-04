@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Отправитель" as Sender
+actor "Получатель" as Receiver
+actor "Облачное хранилище" as CloudStorage <<External System>>
+actor "Почтовый сервис" as EmailService <<External System>>
+
+rectangle "Система передачи файлов" {
+    usecase "Отправка файла" as UC_SendFile
+    usecase "Загрузка файла" as UC_UploadFile
+    usecase "Указание получателя" as UC_SpecifyRecipient
+    usecase "Сохранение файла" as UC_SaveToCloud
+    usecase "Отправка email-уведомления" as UC_SendEmail
+    usecase "Скачивание файла" as UC_DownloadFile
+
+    UC_SendFile ..> UC_UploadFile : <<include>>
+    UC_SendFile ..> UC_SpecifyRecipient : <<include>>
+    UC_SendFile ..> UC_SaveToCloud : <<include>>
+    UC_SendFile ..> UC_SendEmail : <<include>>
+}
+
+Sender --> UC_SendFile
+Receiver --> UC_DownloadFile
+
+UC_SaveToCloud --> CloudStorage
+UC_DownloadFile --> CloudStorage
+UC_SendEmail --> EmailService
+@enduml
